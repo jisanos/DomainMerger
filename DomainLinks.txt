@@ -4,5 +4,4 @@ https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/dnscry
 https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/dnscrypt/spy.txt
 https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/dnscrypt/update.txt
 https://gist.githubusercontent.com/Ewpratten/a25ae63a7200c02c850fede2f32453cf/raw/b9318009399b99e822515d388b8458557d828c37/hosts-yt-ads
-https://block.energized.pro/spark/formats/domains.txt
 https://block.energized.pro/blu/formats/domains.txt

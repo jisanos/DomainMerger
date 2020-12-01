@@ -80,4 +80,5 @@ elif input_ == 2:
     
     write_file(hosts)
 
-    
+
+input("Press return or enter to exit")
