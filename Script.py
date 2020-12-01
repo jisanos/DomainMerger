@@ -40,10 +40,8 @@ for line in domains:
     
     
 
-tmp = []
-
 #Taking out any duplicates
-domains_no_dups = [line for line in domains_clean if line not in tmp]
+domains_no_dups = list(dict.fromkeys(domains_clean)) 
 
 
 print("Domains "+ str(len(domains_clean)))
