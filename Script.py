@@ -26,7 +26,19 @@ for line in domain_links:
     [domains.append(sub_line) for sub_line in requests.get(line).text.strip().split("\n")]
         
 #Will contain the domains stripped from 0.0.0.0
-domains_clean = [line.replace("0.0.0.0 ", "") for line in domains] 
+domains_clean = []
+
+for line in domains:
+    
+    string = ""
+    
+    string = line.replace("0.0.0.0 ", "")
+    
+    string = string.replace("0.0.0.0", "")
+    
+    domains_clean.append(string)
+    
+    
 
 tmp = []
 

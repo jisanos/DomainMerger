@@ -26865,7 +26865,6 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
-0.0.0.0
 n2019cov.000webhostapp.com
 webmail-who-int.000webhostapp.com
 010sec.com
@@ -27125,7 +27124,7 @@ battery-force.org
 batterynart.com
 beauty-tea.com
 www.beauty-tea.com
-0.0.0.0.beeglivesex.com
+.beeglivesex.com
 cdn.beginads.com
 www.cdn.beginads.com
 rotator.beginads.com
@@ -28096,9 +28095,9 @@ hb-analytics.hotstar.com
 segment.hotstar.com
 hpphhpph.com
 hpyrdr.com
-0.0.0.0.hpyrdr.com
+.hpyrdr.com
 creative.hpyrdr.com
-0.0.0.0.creative.hpyrdr.com
+.creative.hpyrdr.com
 bmy.hqoohoa.com
 hrcorp1.site
 hrtya.com
