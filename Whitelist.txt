@@ -1,0 +1,2 @@
+login.live.com
+*.xboxlive.com
