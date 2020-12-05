@@ -25,7 +25,11 @@ for line in domain_links:
     #Appending all the domains from the links provided
     [domains.append(sub_line) for sub_line in requests.get(line).text.strip().split("\n")]
         
-#Will contain the domains stripped from 0.0.0.0
+
+print("Domains default "+ str(len(domains)))
+
+
+#Will contain the domains stripped from 0.0.0.0 and other unncecesary values
 domains_clean = []
 
 for line in domains:
@@ -36,15 +40,22 @@ for line in domains:
     
     string = string.replace("0.0.0.0", "")
     
-    domains_clean.append(string)
+    #Removing unnecesary strings.
+    #                                                                                if there is a comment | if the line contains only whitespace
+    if("127.0.0.1" in line or "localhost" in line or "::" in line or "broadcasthost" in line or "#" in line or line.strip() ==""):
+        continue
+        
     
+    else:
+        domains_clean.append(string)
     
+
 
 #Taking out any duplicates
 domains_no_dups = list(dict.fromkeys(domains_clean)) 
 
 
-print("Domains "+ str(len(domains_clean)))
+print("Domains after comments, whitespace and others removal "+ str(len(domains_clean)))
 print("Domains after dups removal "+str(len(domains_no_dups)))
 
 #Removing whitelisted domains
@@ -54,17 +65,7 @@ for line in whitelists:
 
 print("Domains after whitelist removal "+str(len(domains_no_dups)))
 
-domains_no_comments =[]
-
-#Removing comments and enter spaces
-for line in domains_no_dups:
-    if line.find("#") == -1 and line.strip() !="": #If not found then append
-        domains_no_comments.append(line)
-    
-    
-
-print("Domains after comments and enter removal "+str(len(domains_no_comments)))
-
+ 
 def write_file(doms):
     with open("merged.txt", "w") as f:
         for line in doms:
@@ -73,10 +74,10 @@ def write_file(doms):
 
 
 if input_ == 1:
-    write_file(domains_no_comments)
+    write_file(domains_no_dups)
 
 elif input_ == 2:
-    hosts = [("0.0.0.0 "+line) for line in domains_no_comments]
+    hosts = [("0.0.0.0 "+line) for line in domains_no_dups]
     
     write_file(hosts)
 
