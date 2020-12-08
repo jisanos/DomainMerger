@@ -60,7 +60,9 @@ print("Domains after dups removal "+str(len(domains_no_dups)))
 
 #Removing whitelisted domains
 for line in whitelists:
-    domains_no_dups.remove(line)
+    #If the string is in the list then remove, else dont
+    if line in domains_no_dups:
+        domains_no_dups.remove(line)
 
 
 print("Domains after whitelist removal "+str(len(domains_no_dups)))
