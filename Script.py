@@ -42,7 +42,7 @@ for line in domains:
     
     #Removing unnecesary strings.
     #                                                                                if there is a comment | if the line contains only whitespace
-    if("127.0.0.1" in line or "localhost" in line or "::" in line or "broadcasthost" in line or "#" in line or line.strip() ==""):
+    if("127.0.0.1" in line or "localhost" in line or "::" in line or "broadcasthost" in line or "#" in line or not line.strip()):
         continue
         
     
