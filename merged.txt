@@ -1,4 +1,5 @@
 *.2mdn.net
+*.a-msedge.net
 *.appex-rf.msn.com
 *.dc-msedge.net
 *.location.live.net
@@ -15,6 +16,8 @@
 *.vortex*.data.microsoft.com
 *.vortex.data.microsoft.com
 *.weather.microsoft.com
+*.xboxlive.com
+a-msedge.net
 a.config.skype.com
 activation-v2.sls.microsoft.com
 activation.sls.microsoft.com
@@ -26,9 +29,12 @@ api.cdp.microsoft.com
 api.onedrive.com
 appex-rf.msn.com
 apps.skype.com
+arc.msn.com
+arc.msn.com.nsatc.net
 auth.gfx.ms
 b.config.skype.com
 bingforbusiness.com
+browser.events.data.microsoft.com
 c1.microsoft.com
 candycrushsoda.king.com
 cdn.content.prod.cms.msn.com
@@ -64,9 +70,12 @@ img.stb.s-msn.com
 insiderservice.microsoft.com
 insideruser.microsoft.com
 ipv4.login.live.com
+licensing.mp.microsoft.com
 location-inference-westus.cloudapp.net
+login.live.com
 login.microsoftonline.com
 login.msa.akadns6.net
+logincdn.msauth.net
 m.hotmail.com
 manage.devcenter.microsoft.com
 maps.windows.com
@@ -162,8 +171,11 @@ sfdataservice.microsoft.com
 share.microsoft.com
 storage.live.com
 store-images.microsoft.com
+store-images.s-microsoft.com
 storecatalogrevocation.storequality.microsoft.com
+storeedgefd.dsx.mp.microsoft.com
 substrate.office.com
+support.microsoft.com
 t.urs.microsoft.com
 time.windows.com
 tk2.plt.msn.com
@@ -199,6 +211,7 @@ xml.login.live.com
 *.glbdns2.microsoft.com
 *.rad.msn.com
 *.rads.msn.com
+*.telemetry.microsoft.com
 ac3.msn.com
 activity.windows.com
 adnexus.net
@@ -373,6 +386,7 @@ ch3301-g.1drv.com
 ch3302-c.1drv.com
 ch3302-e.1drv.com
 compatexchange1.trafficmanager.net
+continuum.dds.microsoft.com
 corp.sts.microsoft.com
 cs.dds.microsoft.com
 cs1.wpc.v0cdn.net
@@ -520,6 +534,7 @@ ssw.live.com
 survey.watson.microsoft.com
 tele.trafficmanager.net
 telemetry.appex.bing.net
+telemetry.microsoft.com
 telemetry.remoteapp.windowsazure.com
 telemetry.urs.microsoft.com
 teredo.ipv6.microsoft.com
@@ -535,7 +550,11 @@ win10.ipv6.microsoft.com
 win1710.ipv6.microsoft.com
 win8.ipv6.microsoft.com
 ztd.dds.microsoft.com
+*.delivery.dsp.mp.microsoft.com.nsatc.net
+*.delivery.mp.microsoft.com
 *.prod.do.dsp.mp.microsoft.com
+*.update.microsoft.com
+*.windowsupdate.com
 *.ws.microsoft.com
 adl.windows.com
 am3p.wns.windows.com
@@ -820,13 +839,14 @@ db6sch102091603.wns.windows.com
 db6sch102091606.wns.windows.com
 db6sch102091607.wns.windows.com
 definitionupdates.microsoft.com
+displaycatalog.mp.microsoft.com
 download.microsoft.com
 geo-prod.do.dsp.mp.microsoft.com
 geover-prod.do.dsp.mp.microsoft.com
 skydrive.wns.windows.com
 skydrivesync.policies.live.net
 tsfe.trafficshaping.dsp.mp.microsoft.com
-
+windowsupdate.com
 n2019cov.000webhostapp.com
 webmail-who-int.000webhostapp.com
 010sec.com
@@ -2454,6 +2474,7 @@ messager.cloud
 web.vortex.data.microsoft.com
 sqm.telemetry.microsoft.com
 telecommand.telemetry.microsoft.com
+watson.telemetry.microsoft.com
 ns1.microsoftonlines.net
 ns2.microsoftonlines.net
 update.microsoftonlines.net

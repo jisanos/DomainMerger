@@ -71,8 +71,9 @@ print("Domains after whitelist removal "+str(len(domains_no_dups)))
 def write_file(doms):
     with open("merged.txt", "w") as f:
         for line in doms:
-            f.write(line)
-            f.write("\n")
+            if line.strip():
+                f.write(line)
+                f.write("\n")
 
 
 if input_ == 1:
