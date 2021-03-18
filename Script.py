@@ -1,61 +1,89 @@
-#import pandas as pd
 import requests
+import re
 
-
-domain_links = [] #List containing the domain links extracted from DomainLinks.exe
-whitelists = [] #List containing domains from the Whitelist.txt
+#List containing the domain links extracted from domain_links.exe
+domain_links = []
+#List containing domains from the whitelists.txt
+whitelists = []
 input_ = 0
-
-
 
 while input_ <= 0 or input_ > 2:
     input_ = int(input("1. Domains Only\n2. Hosts File\n"))
     
 
-with open("DomainLinks.txt", "r") as f:
+with open("domain_links.txt", "r") as f:
     #Stripping the \n characters and appending to list
     domain_links = [line.strip() for line in f.readlines()]
     
-with open("Whitelist.txt", "r") as f:
+    
+with open("whitelists.txt", "r") as f:
     whitelists = [line.strip() for line in f.readlines()]
     
-domains = [] #List containing the domains from each of the links provided
-
-for line in domain_links:
-    #Appending all the domains from the links provided
-    [domains.append(sub_line) for sub_line in requests.get(line).text.strip().split("\n")]
-        
+    
+#Appending all the domains from the links provided
+domains = [sub_line for line in domain_links 
+           for sub_line in 
+           requests.get(line).text.strip().split("\n")]
 
 print("Domains default "+ str(len(domains)))
 
 
-#Will contain the domains stripped from 0.0.0.0 and other unncecesary values
+#Will contain the domains stripped from 0.0.0.0
+#and other unncecesary values
 domains_clean = []
+
+#using https://gist.github.com/chew-z/3a43967812fdac788d56
+#as reference
+localhost_pat = re.compile(
+    '^0.0.0.0.*localhost\.localdomain.*$|^(?!\#).*broadcasthost.*$|^0.0.0.0.*local.*$')
+
+comment_pat = re.compile('#(.*)\n')
+
+other_pat = re.compile('(::)')
+
+bad_pats = re.compile(
+    '^0.0.0.0(\s*|\t*)|^127.0.0.1(\s*|\t*)|#(.*)')
 
 for line in domains:
     
-    string = ""
+    line = bad_pats.sub("",line)
     
-    string = line.replace("0.0.0.0 ", "")
-    
-    string = string.replace("0.0.0.0", "")
-    
-    #Removing unnecesary strings.
-    #                                                                                if there is a comment | if the line contains only whitespace
-    if("127.0.0.1" in line or "localhost" in line or "::" in line or "broadcasthost" in line or "#" in line or not line.strip()):
+    if localhost_pat.search(line):
+        print("localhost_pat: ",line)
         continue
         
+    if comment_pat.search(line):
+        print("comment_pat: ",line)
+        continue
     
-    else:
-        domains_clean.append(string)
+    if other_pat.search(line):
+        print("other_pat: ",line)
+        continue
     
+    if re.fullmatch("0.0.0.0", line):
+        print("fullmatch 0.0.0.0: ",line)
+        continue
+    
+    if re.fullmatch("local", line):
+        print("fullmatch local: ",line)
+        continue
+    
+    if re.fullmatch("localhost", line):
+        print("fullmatch localhost: ", line)
+        continue
+    
+    if not line.strip():# If whitespace
+        #print("whitespace: ",line)
+        continue
+    
+    domains_clean.append(line.strip())
+                    
 
+print("Domains after comments, whitespace and others patterns removed "+ str(len(domains_clean)))
 
 #Taking out any duplicates
-domains_no_dups = list(dict.fromkeys(domains_clean)) 
+domains_no_dups = list(set(domains_clean)) 
 
-
-print("Domains after comments, whitespace and others removal "+ str(len(domains_clean)))
 print("Domains after dups removal "+str(len(domains_no_dups)))
 
 #Removing whitelisted domains
@@ -71,9 +99,8 @@ print("Domains after whitelist removal "+str(len(domains_no_dups)))
 def write_file(doms):
     with open("merged.txt", "w") as f:
         for line in doms:
-            if line.strip():
-                f.write(line)
-                f.write("\n")
+            f.write(line)
+            f.write("\n")
 
 
 if input_ == 1:
