@@ -3,9 +3,9 @@ Hosts file and domain merging utility
 
 # Usage
 
-In the DomainLinks.txt paste links that lead to a set of hosts file or domains (examples are provided: eg. https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
+In the domain_links.txt paste links that lead to a set of hosts file or domains (eg. https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
 
-In the Whitelist.txt enter the domains you wish to whitelist (examples are provided: eg. login.live.com)
+In the whitelist.txt enter the domains you wish to whitelist (eg. login.live.com)
 
 Run the script (double click it or `run python .\Script.py`) and select 1 if you wish to generate a domain list or 2 if you wish to generate a Hosts file.
 
