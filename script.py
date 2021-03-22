@@ -1,5 +1,6 @@
 import requests
 import re
+from gui import Ui_MainWindow
 
 # List containing the domain links extracted from blacklist_packs.txt
 blacklist_packs = []
