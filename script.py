@@ -1,6 +1,5 @@
 import requests
 import re
-from gui import Ui_MainWindow
 
 
 # List containing the domain links extracted from blacklist_packs.txt
@@ -89,8 +88,8 @@ for line in domains:
     domains_clean.append(line.strip())
 
 
-
-print("Domains after comments, whitespace and others patterns removed " + str(len(domains_clean)))
+print("Domains after comments, whitespace and others patterns removed " +
+      str(len(domains_clean)))
 
 
 # Adding lines from the blacklist.txt
