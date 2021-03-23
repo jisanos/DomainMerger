@@ -1,1 +1,1 @@
-pyuic6 -o gui.py gui.ui
+pyuic6 -o ui_main_window.py ui_main_window.ui
