@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-# LOL test
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
