@@ -14,46 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTreeView" name="treeView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>281</width>
-      <height>181</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>260</y>
-      <width>241</width>
-      <height>161</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>450</y>
-      <width>241</width>
-      <height>151</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView_3">
-    <property name="geometry">
-     <rect>
-      <x>305</x>
-      <y>40</y>
-      <width>261</width>
-      <height>561</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -106,7 +66,7 @@
      <string>Complete Merged Blacklist</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_add_blacklist">
+   <widget class="QPushButton" name="pushButton_add_blacklist">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -119,7 +79,7 @@
      <string>+</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_remove_blacklist">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -132,7 +92,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_remove_whitelist">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -145,7 +105,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButton_add_whitelist">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -171,7 +131,7 @@
      <number>24</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_apply">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -182,6 +142,51 @@
     </property>
     <property name="text">
      <string>Apply</string>
+    </property>
+   </widget>
+   <widget class="QTreeWidget" name="treeWidget_packs">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string notr="true">1</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QListWidget" name="listWidget_blacklist">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>231</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_whitelist">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>450</y>
+      <width>231</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_merged">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>40</y>
+      <width>256</width>
+      <height>561</height>
+     </rect>
     </property>
    </widget>
   </widget>
