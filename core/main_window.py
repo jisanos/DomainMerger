@@ -1,4 +1,5 @@
 from ui.main_window import Ui_MainWindow
+from utils.domain_merger import domain_merger
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -10,6 +11,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
         self.load_packs()
+
+        self.ui.pushButton_apply.clicked.connect(self.apply_clicked)
 
     def load_packs(self):
         """Here we load the diferent blacklist packs into the tree view widget
@@ -49,6 +52,10 @@ class MainWindow(QtWidgets.QMainWindow):
                       "OISD": [("Basic", "https://dbl.oisd.nl/basic/", "primarily blocks Ads, (Mobile) App Ads."),
                                ("Full", "https://dbl.oisd.nl/",
                                "Ads, (Mobile) App Ads, Phishing, Malvertising, Malware, Spyware, Ransomware, CryptoJacking, Scam... Telemetry, Analytics, Tracking (Where not needed for proper functionality)")],
+                      "WindowsSpyBlocker": [("Spy", "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt", "Spy rules block Windows telemetry"),
+                                            ("Updates", "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update.txt",
+                                             "Update rules block Windows Update"),
+                                            ("Extra", "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt", "Block third party applications like Skype, Bing, Live, Outlook, NCSI, Microsoft Office")],
                       }
 
         for blacklist in blacklists:
@@ -62,4 +69,26 @@ class MainWindow(QtWidgets.QMainWindow):
                 child.setFlags(
                     child.flags() | QtCore.Qt.ItemFlags.ItemIsUserCheckable)
                 child.setText(0, pack)
+                child.setText(1,url)
+                child.setText(2,description)
                 child.setCheckState(0, QtCore.Qt.CheckState.Unchecked)
+
+    def apply_clicked(self):
+        """This will execute the domain merger script when the user presses the apply button.
+        It extract the values from the tree widget and pass them as arguments to
+        the script.
+        """
+        selected_packs = []
+
+        # Iterating through selected items in the tree widget
+        iterator = QtWidgets.QTreeWidgetItemIterator(
+            self.ui.treeWidget_packs,
+            QtWidgets.QTreeWidgetItemIterator.IteratorFlags.Checked)
+            
+        while iterator.value():
+            item = iterator.value()
+            print(item.text(1))# 1 is the column of the link to the pack itself
+            selected_packs.append(item.text(1))
+            iterator += 1
+
+        domain_merger(selected_packs,[],[])
