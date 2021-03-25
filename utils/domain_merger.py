@@ -65,6 +65,10 @@ def domain_merger(blacklist_packs, whitelist, blacklist):
             print("fullmatch localhost: ", line)
             continue
 
+        if re.fullmatch(".com", line):
+            print("fullmatch .com: ", line)
+            continue
+
         if not line.strip():  # If whitespace
             # print("whitespace: ",line)
             continue

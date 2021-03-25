@@ -96,6 +96,5 @@ class MainWindow(QtWidgets.QMainWindow):
 
         try:
             _thread.start_new_thread(domain_merger,(selected_packs,[],[]) )
-
         except:
             print("Unable to start thread.")
