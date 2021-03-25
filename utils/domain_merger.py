@@ -97,6 +97,7 @@ def domain_merger(blacklist_packs, whitelist, blacklist):
             f.write(line)
             f.write("\n")
 
+    # Deleting lists for memory management
     # del blacklist_packs
     # del whitelist
     # del domains

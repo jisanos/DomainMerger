@@ -1,4 +1,5 @@
 from ui.main_window import Ui_MainWindow
+import _thread 
 from utils.domain_merger import domain_merger
 from PyQt6 import QtCore, QtGui, QtWidgets
 
@@ -91,4 +92,10 @@ class MainWindow(QtWidgets.QMainWindow):
             selected_packs.append(item.text(1))
             iterator += 1
 
-        domain_merger(selected_packs,[],[])
+        #domain_merger(selected_packs,[],[])
+
+        try:
+            _thread.start_new_thread(domain_merger,(selected_packs,[],[]) )
+
+        except:
+            print("Unable to start thread.")
