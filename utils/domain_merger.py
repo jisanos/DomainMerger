@@ -96,7 +96,7 @@ def domain_merger(blacklist_packs, whitelist, blacklist):
 
     print("Domains after whitelist removal "+str(len(domains_no_dups)))
 
-    with open("merged.txt", "w") as f:
+    with open("blacklist.txt", "w") as f:
         for line in domains_no_dups:
             f.write(line)
             f.write("\n")
