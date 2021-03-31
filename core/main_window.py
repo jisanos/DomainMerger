@@ -1,5 +1,5 @@
 from ui.main_window import Ui_MainWindow
-import _thread 
+import _thread
 from utils.domain_merger import domain_merger
 from PyQt6 import QtCore, QtGui, QtWidgets
 
@@ -70,8 +70,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 child.setFlags(
                     child.flags() | QtCore.Qt.ItemFlags.ItemIsUserCheckable)
                 child.setText(0, pack)
-                child.setText(1,url)
-                child.setText(2,description)
+                child.setText(1, url)
+                child.setText(2, description)
                 child.setCheckState(0, QtCore.Qt.CheckState.Unchecked)
 
     def apply_clicked(self):
@@ -85,16 +85,16 @@ class MainWindow(QtWidgets.QMainWindow):
         iterator = QtWidgets.QTreeWidgetItemIterator(
             self.ui.treeWidget_packs,
             QtWidgets.QTreeWidgetItemIterator.IteratorFlags.Checked)
-            
+
         while iterator.value():
             item = iterator.value()
-            print(item.text(1))# 1 is the column of the link to the pack itself
+            # 1 is the column of the link to the pack itself
+            print(item.text(1))
             selected_packs.append(item.text(1))
             iterator += 1
 
-        #domain_merger(selected_packs,[],[])
-
         try:
-            _thread.start_new_thread(domain_merger,(selected_packs,[],[]) )
+            _thread.start_new_thread(
+                domain_merger, (selected_packs, self.ui.checkBox_hosts.isChecked()))
         except:
             print("Unable to start thread.")

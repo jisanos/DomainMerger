@@ -2,7 +2,7 @@ import requests
 import re
 
 
-def domain_merger(blacklist_packs, whitelist, blacklist):
+def domain_merger(blacklist_packs, isChecked, whitelist=[], blacklist=[]):
     """This will get the domains from the provided packs, then parse them and 
     clean them up from unnecesities, and finally merge them all (including the
     provided blacklist) and remove any whitelists.
@@ -96,14 +96,14 @@ def domain_merger(blacklist_packs, whitelist, blacklist):
 
     print("Domains after whitelist removal "+str(len(domains_no_dups)))
 
-    with open("blacklist.txt", "w") as f:
-        for line in domains_no_dups:
-            f.write(line)
-            f.write("\n")
+    if isChecked:  # If hosts checkbox is checked
+        with open("blacklist.txt", "w") as f:
+            for line in domains_no_dups:
+                f.write("0.0.0.0 " + line)
+                f.write("\n")
+    else:
 
-    # Deleting lists for memory management
-    # del blacklist_packs
-    # del whitelist
-    # del domains
-    # del domains_clean
-    # del domains_no_dups
+        with open("blacklist.txt", "w") as f:
+            for line in domains_no_dups:
+                f.write(line)
+                f.write("\n")

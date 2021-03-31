@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(255, 275)
+        MainWindow.resize(255, 303)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -20,12 +20,15 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.Alignment.AlignCenter)
         self.label.setObjectName("label")
         self.pushButton_apply = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_apply.setGeometry(QtCore.QRect(80, 240, 75, 23))
+        self.pushButton_apply.setGeometry(QtCore.QRect(130, 250, 75, 23))
         self.pushButton_apply.setObjectName("pushButton_apply")
         self.treeWidget_packs = QtWidgets.QTreeWidget(self.centralwidget)
         self.treeWidget_packs.setGeometry(QtCore.QRect(10, 40, 231, 192))
         self.treeWidget_packs.setObjectName("treeWidget_packs")
         self.treeWidget_packs.headerItem().setText(0, "1")
+        self.checkBox_hosts = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_hosts.setGeometry(QtCore.QRect(20, 250, 70, 17))
+        self.checkBox_hosts.setObjectName("checkBox_hosts")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -35,4 +38,5 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Blacklist Packs"))
-        self.pushButton_apply.setText(_translate("MainWindow", "Apply"))
+        self.pushButton_apply.setText(_translate("MainWindow", "Generate"))
+        self.checkBox_hosts.setText(_translate("MainWindow", "Hosts File"))
